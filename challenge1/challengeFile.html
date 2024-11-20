@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Challenge 1</title>
+</head>
+<body>
+<!-- Create a div tag with some text and an id named "goodbye".
+     Create a button that, when clicked, makes the text disappear
+
+     Create a button that shows the text
+     -->
+<div id="goodbye">Some text.</div>
+<button id="cool" onclick="myFirstFunction()">Click me to remove the text.</button>
+<button id="notCool" onclick="myLastFunction()">Click me to re-show the text.</button>
+<script>
+    function myFirstFunction(){
+        document.getElementById("goodbye").innerHTML  = "";
+    }
+    function myLastFunction(){
+        document.getElementById("goodbye").innerHTML = "Some text.";
+    }
+</script>
+</body>
+</html>
