@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>String Manipulation</title>
+</head>
+<body>
+<script>
+  someString = "a bunch of characters.";
+
+  // len() but javascript
+  let length = someString.length;
+
+  // here's how you get a specific index
+  let thirdLetter = someString.charAt(3);
+  alert(thirdLetter)
+
+  //substrings use the substring method
+  let mySubstring = someString.substring(7, 17);
+  alert(mySubstring)
+  let reverseWord = ""
+  // reverse my string
+  for(let index = someString.length - 1; index >= 0; index--){
+    reverseWord += someString.charAt(index);
+  }
+
+  alert(reverseWord)
+</script>
+
+
+</body>
+</html>
