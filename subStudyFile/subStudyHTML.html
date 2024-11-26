@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+<div>
+  <p id="changeMe">Sometimes, a page can detect when you reload it. This can happen for a number of reasons.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  setTimeout(() => {
+    document.getElementById("changeMe").innerHTML = "Why are you still here?"
+    console.log("Changing p tag, user inactive.")
+  }, 30000);
+
+  //check for Navigation Timing API support
+if (window.performance) {
+  console.info("window.performance works fine on this browser");
+}
+console.info(performance.navigation.type);
+//check if the page has been reloaded
+if (performance.navigation.type === performance.navigation.TYPE_RELOAD) {
+  document.getElementById("changeMe").innerHTML = "Like right now. The 'why' is a little... nonexistent, but the concept exists and it is cool."
+} else {
+  console.info( "This page is not reloaded");
+}
+</script>
+</body>
+</html>
