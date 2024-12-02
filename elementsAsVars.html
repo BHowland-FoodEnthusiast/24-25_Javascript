@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Elements as Vars</title>
+</head>
+<body>
+<img src="img/turk.jpg" alt="Turkey" id="turkey"/>
+<button type="button" onclick="toggle()">Toggle</button>
+
+<script>
+    function toggle(){
+        const image = document.getElementById("turkey");
+
+
+        if (image.style.display === "block"){
+            image.style.display = "none";
+        }else{
+            image.style.display = "block";
+        }
+
+
+
+
+    }
+
+
+</script>
+
+</body>
+</html>

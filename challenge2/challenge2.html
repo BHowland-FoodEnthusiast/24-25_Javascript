@@ -6,10 +6,8 @@
 </head>
 <body>
 <!-- Add a button that when you click it, the background of the table changes to blue -->
-<button id="cool" onclick="myFirstFunction()">Click me to change the table to blue.</button>
-<button id="lessCool" onclick="myLastFunction()">Click me to change the table back to white.</button>
-
-<table id="nice">
+<button id="cool" onclick="myFirstFunction()" >Click me to change the table to blue.</button>
+<table id="nice" bgcolor="blue">
   <tr>
     <th>Company</th>
     <th>Contact</th>
@@ -48,12 +46,15 @@
 
 
   <script>
+    change = document.getElementById("nice").backgroundColor
     function myFirstFunction(){
-      document.getElementById("nice").bgColor  = "blue";
-    }
-    function myLastFunction(){
-      document.getElementById("nice").bgColor = "white";
-    }
+      if(change === "blue"){
+        document.getElementById("nice.").backgroundColor = "red"
+      }else{
+        document.getElementById("nice").bgColor  = "orange";
+      }
+      }
+
   </script>
 </table>
 </body>
