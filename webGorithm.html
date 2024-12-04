@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+
+
+
+<script>
+  import fs from 'fs';
+
+  class PityRandom {
+    constructor(numStudents) {
+      this.numStudents = numStudents;
+      this.history = [];
+      this.weights = Array(numStudents).fill(1);
+      this.loadHistory();
+    }
+
+    pickStudent() {
+      const totalWeight = this.weights.reduce((a, b) => a + b, 0);
+      const probabilities = this.weights.map(w => w / totalWeight);
+      const student = this.randomChoice(probabilities);
+
+      // Update history and weights
+      this.history.push(student);
+      if (this.history.length > 100) {  // Keep history size manageable
+        this.history.shift();
+      }
+
+      this.updateWeights();
+      this.saveHistory();
+      return student;
+    }
+
+    updateWeights() {
+      this.weights = Array(this.numStudents).fill(1);
+      for (const student of this.history) {
+        if (student >= 1 && student <= this.numStudents) {
+          this.weights[student - 1] *= 0.0078125;  // Decrease weight for recently picked students
+        }
+      }
+    }
+
+    loadHistory() {
+      if (fs.existsSync('history.json')) {
+        const data = JSON.parse(fs.readFileSync('history.json', 'utf8'));
+        this.history = data.history.filter(num => num >= 1 && num <= this.numStudents);
+        this.updateWeights();
+      }
+    }
+
+    saveHistory() {
+      fs.writeFileSync('history.json', JSON.stringify({ history: this.history }));
+    }
+
+    randomChoice(probabilities) {
+      const cumulativeProbabilities = probabilities.map((p, i) => probabilities.slice(0, i + 1).reduce((a, b) => a + b, 0));
+      const randomValue = Math.random();
+      return cumulativeProbabilities.findIndex(cumProb => cumProb >= randomValue) + 1;
+    }
+  }
+
+  // Example usage
+  const numStudents = parseInt(prompt("Enter the number of students in the class: "), 10);
+  const pityRandom = new PityRandom(numStudents);
+  console.log(pityRandom.pickStudent());
+
+
+</script>
+</body>
+</html>

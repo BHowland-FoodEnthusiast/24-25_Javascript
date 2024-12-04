@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Numeric Toggle</title>
+</head>
+<body>
+
+<button type="button" onclick="toggle()">Click me</button>
+
+<script>
+    counter = 0;
+    function toggle(){
+        if (counter % 2 === 0) {
+            alert("Even: " + String(counter));
+        }else{
+            alert("Odd: " + String(counter));
+        }
+
+        counter++;
+    }
+
+</script>
+
+</body>
+</html>

@@ -46,13 +46,14 @@
 
 
   <script>
-    change = document.getElementById("nice").backgroundColor
+    oggle = 0
     function myFirstFunction(){
-      if(change === "blue"){
-        document.getElementById("nice.").backgroundColor = "red"
+      if(oggle % 2 === 0){
+        document.getElementById("nice").bgColor = "red"
       }else{
-        document.getElementById("nice").bgColor  = "orange";
+        document.getElementById("nice").bgColor  = "blue";
       }
+      oggle++
       }
 
   </script>
