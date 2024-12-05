@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Challenge for disappearing image</title>
+</head>
+<body>
+<img src="../img/turk.jpg" id="lmao" onmouseover="functionForHover()" onmouseleave="functionForLetGo()">
+
+
+<script>
+  function functionForHover(){
+    document.getElementById('lmao').hidden = true
+  }
+  function functionForLetGo(){
+    document.getElementById('lmao').hidden = false
+  }
+</script>
+</body>
+</html>
